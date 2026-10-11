@@ -2,6 +2,7 @@
 
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles, User, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
@@ -50,12 +51,19 @@ function LoginForm() {
       <div className="w-full max-w-md space-y-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-xl">
         
         {/* Logo & Header */}
-        <div className="text-center space-y-2">
-          <Link href="/" className="inline-flex items-center gap-2 group mb-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 text-slate-950 shadow-md shadow-amber-500/20">
-              <Sparkles className="h-6 w-6 fill-current" />
+        <div className="text-center space-y-3">
+          <Link href="/" className="inline-flex flex-col items-center gap-2 group mb-1">
+            <div className="relative h-20 w-20 rounded-full overflow-hidden shadow-2xl ring-2 ring-amber-400/50 group-hover:scale-105 transition-transform">
+              <Image
+                src="/images/logo.png"
+                alt="Club des Chantres Logo"
+                fill
+                sizes="80px"
+                className="object-cover"
+                priority
+              />
             </div>
-            <span className="font-extrabold text-xl text-slate-900">
+            <span className="font-extrabold text-xl text-slate-900 tracking-tight">
               CLUB DES <span className="text-amber-500">CHANTRES</span>
             </span>
           </Link>

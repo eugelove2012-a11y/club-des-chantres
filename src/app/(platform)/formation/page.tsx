@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { GraduationCap, Clock, BookOpen, Mic, Music, ArrowRight } from 'lucide-react';
+import { PlatformHeaderBanner } from '@/components/layout/PlatformHeaderBanner';
 
 interface Course {
   id: string;
@@ -56,17 +57,28 @@ export default function FormationPage() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
-          <GraduationCap className="h-7 w-7 text-amber-500" />
-          Académie & Formations Gospel
-        </h1>
-        <p className="text-sm text-slate-600 mt-1">
-          Perfectionnez votre jeu et votre technique avec nos cursus vidéo structurés et téléchargez les partitions.
-        </p>
-      </div>
+    <div className="min-h-screen bg-slate-50">
+      
+      {/* En-tête panoramique officiel avec fond scénique et logo d'or */}
+      <PlatformHeaderBanner
+        badge="Académie Musicale"
+        title="Formations & Masterclasses Gospel"
+        subtitle="Technique vocale • Harmonie piano • Batterie d’église • Partitions & Cursus"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+              <GraduationCap className="h-6 w-6 text-amber-500" />
+              Catalogue des Cours & Modules
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              Perfectionnez votre jeu et votre technique avec nos cursus vidéo structurés.
+            </p>
+          </div>
+        </div>
 
       {/* Filter Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 text-xs font-semibold no-scrollbar">
@@ -156,5 +168,6 @@ export default function FormationPage() {
         ))}
       </div>
     </div>
+  </div>
   );
 }

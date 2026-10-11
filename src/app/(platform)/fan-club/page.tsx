@@ -27,6 +27,7 @@ import {
   Award
 } from 'lucide-react';
 import { CREATORS_DATA } from '@/lib/data/creators';
+import { PlatformHeaderBanner } from '@/components/layout/PlatformHeaderBanner';
 
 export default function FanClubPage() {
   const [selectedCategory, setSelectedCategory] = useState<'ALL' | 'CHANTRE' | 'INSTRUMENTISTE' | 'CHORALE'>('ALL');
@@ -59,60 +60,11 @@ export default function FanClubPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       
-      {/* 1. EN-TÊTE IMMERSIF BORD À BORD (MÊME STRUCTURE QUE L'AFFICHE) */}
-      <section className="relative w-full overflow-hidden bg-slate-950 text-white shadow-xl">
-        {/* Image de fond de concert avec ambiance lumineuse */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/slide-2.jpg"
-            alt="Concert Gospel Ambiance"
-            fill
-            priority
-            className="object-cover object-center opacity-45 mix-blend-luminosity scale-105"
-          />
-          {/* Gradients cinématiques bleu nuit & halo or */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/90" />
-          <div className="absolute inset-0 bg-radial-gradient from-blue-600/15 via-transparent to-transparent pointer-events-none" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            {/* Logo d'or Club des Chantres */}
-            <div className="flex items-center gap-3">
-              <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 text-slate-950 shadow-xl shadow-amber-500/20 border-2 border-amber-300/40">
-                <Sparkles className="h-9 w-9 fill-current" />
-                <div className="absolute -bottom-1 -right-1 bg-slate-950 text-amber-400 p-1 rounded-full border border-amber-400">
-                  <Mic className="h-3 w-3" />
-                </div>
-              </div>
-            </div>
-
-            {/* Titre central et sous-titre */}
-            <div className="text-center flex-1 max-w-2xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white drop-shadow-md">
-                Chantres, Instrumentistes <br className="hidden sm:inline" />
-                <span className="text-white">et leurs Fan Clubs</span>
-              </h1>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-slate-200 tracking-wide drop-shadow-sm">
-                Découvrez des talents <span className="text-amber-400">•</span> Suivez vos artistes <span className="text-amber-400">•</span> Rejoignez leurs Fan Clubs
-              </p>
-            </div>
-
-            {/* Calligraphie "Unis pour servir !" */}
-            <div className="hidden lg:flex flex-col items-end">
-              <span className="font-serif italic text-2xl xl:text-3xl font-bold bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 bg-clip-text text-transparent drop-shadow-md rotate-[-3deg]">
-                Unis pour servir !
-              </span>
-              <div className="h-1 w-24 bg-gradient-to-r from-amber-400 to-transparent rounded-full mt-1" />
-            </div>
-
-          </div>
-        </div>
-
-        {/* Liseré fin doré au bas du bandeau */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-amber-500/20 via-amber-400 to-amber-500/20 shadow-xs" />
-      </section>
+      {/* 1. EN-TÊTE IMMERSIF BORD À BORD (MÊME STRUCTURE QUE L'AFFICHE AVEC NOUVEAU LOGO OFFICIEL) */}
+      <PlatformHeaderBanner
+        title="Chantres, Instrumentistes et leurs Fan Clubs"
+        subtitle="Découvrez des talents • Suivez vos artistes • Rejoignez leurs Fan Clubs"
+      />
 
       {/* 2. BARRE DE RECHERCHE, FILTRES ET ONGLET NIVEAUX */}
       <section className="mx-auto max-w-7xl px-4 -mt-4 sm:-mt-5 sm:px-6 lg:px-8 relative z-20">

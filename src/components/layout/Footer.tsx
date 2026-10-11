@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, MessageSquare, LogOut, ShieldCheck, Heart } from 'lucide-react';
 import { ContactModal } from './ContactModal';
 import { logoutAction } from '@/actions/auth.action';
@@ -21,9 +22,25 @@ export const Footer: React.FC<FooterProps> = ({ isAuthenticated = false }) => {
             
             {/* Info & Vision */}
             <div className="space-y-4 md:col-span-2">
-              <h3 className="text-white font-bold text-lg tracking-wide flex items-center gap-2">
-                <span className="text-amber-400">CLUB DES CHANTRES</span> STREAM & ACADEMY
-              </h3>
+              <div className="flex items-center gap-3">
+                <div className="relative h-12 w-12 rounded-full overflow-hidden shadow-lg ring-2 ring-amber-400/40 shrink-0">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Club des Chantres Logo"
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-white font-extrabold text-lg tracking-wide leading-tight">
+                    <span className="text-amber-400">CLUB DES CHANTRES</span>
+                  </h3>
+                  <span className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold block">
+                    Stream & Academy
+                  </span>
+                </div>
+              </div>
               <p className="text-sm text-slate-400 max-w-md leading-relaxed">
                 La 1ère plateforme streaming et académie de musique chrétienne en Afrique francophone.
                 Formations vocales, masterclasses d&apos;instruments et Web TV 24/7 en haute définition.

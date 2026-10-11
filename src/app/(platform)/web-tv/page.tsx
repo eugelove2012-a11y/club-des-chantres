@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { HLSVideoPlayer } from '@/components/ui/HLSVideoPlayer';
 import { Tv, Send, MessageCircle, Clock, Calendar, Play } from 'lucide-react';
+import { PlatformHeaderBanner } from '@/components/layout/PlatformHeaderBanner';
 
 interface ChatMessage {
   id: string;
@@ -38,18 +39,33 @@ export default function WebTVPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50">
       
-      {/* Title */}
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
-          <Tv className="h-7 w-7 text-amber-500" />
-          Web TV Gospel Live 24/7
-        </h1>
-        <p className="text-sm text-slate-600 mt-1">
-          Diffusez en direct, participez au chat communautaire et accédez aux rediffusions de concerts.
-        </p>
-      </div>
+      {/* En-tête panoramique officiel avec fond scénique et logo d'or */}
+      <PlatformHeaderBanner
+        badge="Web TV Direct"
+        title="Web TV Gospel & Directs 24/7"
+        subtitle="Célébrations en direct • Louange continue • Concerts et Témoignages"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        
+        {/* Section info */}
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+              <Tv className="h-6 w-6 text-amber-500" />
+              Diffusion Principale en Haute Définition
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              Participez au chat interactif en temps réel et partagez la grâce avec la communauté.
+            </p>
+          </div>
+          <span className="flex items-center gap-2 rounded-full bg-rose-500/10 px-3.5 py-1 text-xs font-bold text-rose-600 border border-rose-500/20 w-fit">
+            <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse" />
+            DIRECT EN COURS
+          </span>
+        </div>
 
       {/* Main Streaming Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -194,7 +210,7 @@ export default function WebTVPage() {
           </div>
         </div>
       </div>
-
     </div>
+  </div>
   );
 }

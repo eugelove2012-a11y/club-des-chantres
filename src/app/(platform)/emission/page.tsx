@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Radio, Headphones, Play, Clock, Sparkles } from 'lucide-react';
+import { PlatformHeaderBanner } from '@/components/layout/PlatformHeaderBanner';
 
 interface Show {
   id: string;
@@ -41,17 +42,28 @@ const SHOWS: Show[] = [
 
 export default function EmissionPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
-          <Radio className="h-7 w-7 text-amber-500" />
-          Émissions, Podcasts & Talk-Shows
-        </h1>
-        <p className="text-sm text-slate-600 mt-1">
-          Écoutez nos tables rondes, interviews exclusives et podcasts d&apos;édification spirituelle et musicale.
-        </p>
-      </div>
+    <div className="min-h-screen bg-slate-50">
+      
+      {/* En-tête panoramique officiel avec fond scénique et logo d'or */}
+      <PlatformHeaderBanner
+        badge="Talk-Shows & Podcasts"
+        title="Émissions & Médias d’Adoration"
+        subtitle="Interviews exclusives • Partages spirituels • Découvertes de talents & coulisses"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+              <Radio className="h-6 w-6 text-amber-500" />
+              Émissions, Podcasts & Talk-Shows
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              Écoutez nos tables rondes, interviews exclusives et podcasts d&apos;édification.
+            </p>
+          </div>
+        </div>
 
       {/* Shows Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -102,5 +114,6 @@ export default function EmissionPage() {
         ))}
       </div>
     </div>
+  </div>
   );
 }

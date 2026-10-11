@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Newspaper, Share2, Calendar, User, MessageSquare, ArrowRight } from 'lucide-react';
+import { PlatformHeaderBanner } from '@/components/layout/PlatformHeaderBanner';
 
 interface NewsItem {
   id: string;
@@ -55,17 +56,28 @@ export default function ActualitePage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
-          <Newspaper className="h-7 w-7 text-amber-500" />
-          Actualité & Mag Gospel
-        </h1>
-        <p className="text-sm text-slate-600 mt-1">
-          Suivez les dernières sorties, les annonces de concerts et les chroniques de nos mentors.
-        </p>
-      </div>
+    <div className="min-h-screen bg-slate-50">
+      
+      {/* En-tête panoramique officiel avec fond scénique et logo d'or */}
+      <PlatformHeaderBanner
+        badge="Mag & Événements"
+        title="Actualités & Événements Gospel"
+        subtitle="Sorties d’albums • Annonces de concerts • Chroniques et Témoignages"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+              <Newspaper className="h-6 w-6 text-amber-500" />
+              Toutes les Dernières Publications
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+              Suivez les dernières sorties, les annonces de concerts et les chroniques de nos chantres.
+            </p>
+          </div>
+        </div>
 
       {/* News Feed Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -126,5 +138,6 @@ export default function ActualitePage() {
         ))}
       </div>
     </div>
+  </div>
   );
 }
