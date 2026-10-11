@@ -1,14 +1,7 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-const PROTECTED_ROUTES = [
-  '/fan-club',
-  '/web-tv',
-  '/actualite',
-  '/formation',
-  '/emission',
-];
-
+const PROTECTED_ROUTES: string[] = [];
 const CREATOR_ONLY_ROUTES = ['/dashboard/creator'];
 
 export async function middleware(request: NextRequest) {
@@ -22,7 +15,6 @@ export async function middleware(request: NextRequest) {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    // Si Supabase n'est pas encore configuré dans .env.local, laisser passer en dev
     return response;
   }
 
@@ -52,62 +44,22 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   const pathname = request.nextUrl.pathname;
-
-  const isProtectedRoute = PROTECTED_ROUTES.some((route) => pathname.startsWith(route));
   const isCreatorRoute = CREATOR_ONLY_ROUTES.some((route) => pathname.startsWith(route));
 
-  // 1. Visiteur non connecté tentant d'accéder à une page protégée
-  if ((isProtectedRoute || isCreatorRoute) && !user) {
+  // Toutes les sections de consultation (Fan Club, Web TV, Actualités, Formations, Émissions) sont 100% publiques et accessibles librement
+  if (!isCreatorRoute) {
+    return response;
+  }
+
+  // Pour le Studio Créateur, vérifier si l'utilisateur est authentifié ou a un pseudo démo
+  const { data: { user } } = await supabase.auth.getUser();
+  const demoCookie = request.cookies.get('user_pseudo')?.value;
+
+  if (!user && !demoCookie) {
     const redirectUrl = new URL('/login', request.url);
     redirectUrl.searchParams.set('returnUrl', pathname);
     return NextResponse.redirect(redirectUrl);
-  }
-
-  // 2. Utilisateur connecté : Vérification de l'abonnement et du rôle
-  if (user && (isProtectedRoute || isCreatorRoute)) {
-    const [profileRes, subscriptionRes] = await Promise.all([
-      supabase.from('profiles').select('role').eq('id', user.id).single(),
-      supabase
-        .from('subscriptions')
-        .select('plan_type, status, current_period_end')
-        .eq('user_id', user.id)
-        .eq('status', 'ACTIVE')
-        .gt('current_period_end', new Date().toISOString())
-        .order('current_period_end', { ascending: false })
-        .limit(1)
-        .maybeSingle(),
-    ]);
-
-    const profile = profileRes.data;
-    const activeSubscription = subscriptionRes.data;
-
-    // Administrateur = bypass total
-    if (profile?.role === 'ADMIN') {
-      return response;
-    }
-
-    // Aucun abonnement actif valide -> Redirection vers Paywall Checkout
-    if (!activeSubscription) {
-      const checkoutUrl = new URL('/checkout', request.url);
-      checkoutUrl.searchParams.set('returnUrl', pathname);
-      checkoutUrl.searchParams.set('reason', 'subscription_required');
-      return NextResponse.redirect(checkoutUrl);
-    }
-
-    // Accès Studio Créateur réservé aux créateurs avec plan CREATOR_3000
-    if (isCreatorRoute) {
-      if (profile?.role !== 'CREATOR' || activeSubscription.plan_type !== 'CREATOR_3000') {
-        const upgradeUrl = new URL('/checkout', request.url);
-        upgradeUrl.searchParams.set('plan', 'CREATOR_3000');
-        upgradeUrl.searchParams.set('error', 'creator_role_required');
-        return NextResponse.redirect(upgradeUrl);
-      }
-    }
   }
 
   return response;

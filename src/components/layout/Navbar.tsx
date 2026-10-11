@@ -126,6 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={() => {
                     localStorage.removeItem('user_pseudo');
+                    document.cookie = 'user_pseudo=; path=/; max-age=0;';
                     setActivePseudo(null);
                   }}
                   title="Déconnexion"
