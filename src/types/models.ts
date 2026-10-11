@@ -51,15 +51,45 @@ export interface PostMedia {
   author?: Profile;
 }
 
+export type FanClubLevel = 'EMERGENT' | 'BRONZE' | 'ARGENT' | 'OR' | 'PLATINE' | 'DIAMANT';
+
 export interface CreatorCardData {
   id: string;
   full_name: string;
   avatar_url: string | null;
   creator_category: CreatorCategory;
+  role_title?: string;
+  level?: FanClubLevel;
+  country?: string;
+  group_type?: 'CHANTRE' | 'INSTRUMENTISTE' | 'CHORALE';
   bio: string | null;
   likes_count: number;
   fans_count: number;
   has_liked?: boolean;
   is_fan?: boolean;
   preview_media_url?: string;
+  videos_count?: number;
+  audios_count?: number;
+  albums_count?: number;
+  social_links?: {
+    youtube?: string;
+    tiktok?: string;
+    instagram?: string;
+    facebook?: string;
+  };
+  videos?: {
+    id: string;
+    title: string;
+    duration: string;
+    views: string;
+    thumbnail_url: string;
+    date: string;
+  }[];
+  audios?: {
+    id: string;
+    title: string;
+    duration: string;
+    plays: string;
+    album: string;
+  }[];
 }
