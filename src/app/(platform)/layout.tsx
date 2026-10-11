@@ -12,7 +12,7 @@ export default async function PlatformLayout({
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  let profile = null;
+  let profile: any = null;
   let hasActiveSubscription = false;
 
   if (user) {
@@ -32,7 +32,7 @@ export default async function PlatformLayout({
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-950">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
       <Navbar
         userRole={profile?.role || 'GUEST'}
         userFullName={profile?.full_name || null}

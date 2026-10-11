@@ -31,7 +31,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ userRole, isAuthenticated 
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-800/80 bg-slate-950/95 pb-safe backdrop-blur-lg lg:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/95 pb-safe backdrop-blur-lg lg:hidden shadow-lg">
       <div className="grid h-16 grid-cols-5 items-center px-2">
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
@@ -42,8 +42,8 @@ export const BottomNav: React.FC<BottomNavProps> = ({ userRole, isAuthenticated 
               href={item.href}
               className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
                 isActive
-                  ? 'text-amber-400 font-semibold scale-105'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'text-amber-600 font-bold scale-105'
+                  : 'text-slate-500 hover:text-slate-900'
               }`}
             >
               <div className="relative">

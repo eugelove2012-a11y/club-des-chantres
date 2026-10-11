@@ -44,11 +44,11 @@ export default function EmissionPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2">
-          <Radio className="h-7 w-7 text-amber-400" />
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
+          <Radio className="h-7 w-7 text-amber-500" />
           Émissions, Podcasts & Talk-Shows
         </h1>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-slate-600 mt-1">
           Écoutez nos tables rondes, interviews exclusives et podcasts d&apos;édification spirituelle et musicale.
         </p>
       </div>
@@ -58,32 +58,32 @@ export default function EmissionPage() {
         {SHOWS.map((show) => (
           <div
             key={show.id}
-            className="group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden hover:border-amber-500/40 transition-all shadow-lg"
+            className="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-amber-400 hover:shadow-lg transition-all shadow-xs"
           >
-            <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
+            <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={show.thumbnail}
                 alt={show.title}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-3 left-3 rounded-full bg-slate-950/80 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-amber-400 border border-amber-500/20 flex items-center gap-1">
+              <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-amber-700 border border-amber-500/30 flex items-center gap-1 shadow-xs">
                 {show.type === 'PODCAST' ? <Headphones className="h-3 w-3" /> : <Sparkles className="h-3 w-3" />}
                 {show.type === 'PODCAST' ? 'Podcast Audio' : 'Talk Show Plateau'}
               </span>
 
-              <button className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 text-slate-950 font-bold shadow-lg hover:scale-110 transition">
+              <button className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 text-slate-950 font-bold shadow-md hover:scale-110 transition">
                 <Play className="h-5 w-5 fill-current ml-0.5" />
               </button>
             </div>
 
             <div className="flex flex-1 flex-col p-5">
-              <h2 className="font-bold text-base text-white group-hover:text-amber-400 transition-colors">
+              <h2 className="font-bold text-base text-slate-900 group-hover:text-amber-600 transition-colors">
                 {show.title}
               </h2>
-              <p className="text-xs text-slate-400 mt-1">Avec {show.host}</p>
+              <p className="text-xs text-slate-500 mt-1">Avec {show.host}</p>
 
-              <div className="mt-4 flex items-center gap-2 text-xs text-slate-500 border-t border-slate-800/80 pt-3">
+              <div className="mt-4 flex items-center gap-2 text-xs text-slate-500 border-t border-slate-100 pt-3">
                 <Clock className="h-3.5 w-3.5" />
                 <span>Durée : {show.duration}</span>
               </div>

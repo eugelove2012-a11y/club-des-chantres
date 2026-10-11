@@ -69,24 +69,24 @@ export default function FanClubPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2">
-            <Users className="h-7 w-7 text-amber-400" />
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
+            <Users className="h-7 w-7 text-amber-500" />
             Chantres & Fan Club
           </h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <p className="text-sm text-slate-600 mt-1">
             Découvrez vos artistes préférés, adhérez à leurs fan clubs et soutenez leurs ministères.
           </p>
         </div>
 
         {/* Search Input */}
         <div className="relative w-full md:w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Rechercher un artiste..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-amber-500"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs shadow-xs focus:outline-none focus:border-amber-500"
           />
         </div>
       </div>
@@ -95,50 +95,50 @@ export default function FanClubPage() {
       <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 text-xs font-semibold no-scrollbar">
         <button
           onClick={() => setSelectedCategory('ALL')}
-          className={`px-4 py-2 rounded-xl transition whitespace-nowrap ${
+          className={`px-4 py-2 rounded-xl transition whitespace-nowrap shadow-xs ${
             selectedCategory === 'ALL'
               ? 'bg-amber-500 text-slate-950 font-bold'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
           Tous ({ALL_CREATORS.length})
         </button>
         <button
           onClick={() => setSelectedCategory('VOCALIST')}
-          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap shadow-xs ${
             selectedCategory === 'VOCALIST'
               ? 'bg-rose-500 text-white font-bold'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
           <Mic className="h-3.5 w-3.5" /> Chantres 🎤
         </button>
         <button
           onClick={() => setSelectedCategory('PIANIST')}
-          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap shadow-xs ${
             selectedCategory === 'PIANIST'
-              ? 'bg-indigo-500 text-white font-bold'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              ? 'bg-indigo-600 text-white font-bold'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
           <Music className="h-3.5 w-3.5" /> Pianistes 🎹
         </button>
         <button
           onClick={() => setSelectedCategory('DRUMMER')}
-          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap shadow-xs ${
             selectedCategory === 'DRUMMER'
               ? 'bg-amber-500 text-slate-950 font-bold'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
           Batteurs 🥁
         </button>
         <button
           onClick={() => setSelectedCategory('INSTRUCTOR')}
-          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-4 py-2 rounded-xl transition whitespace-nowrap shadow-xs ${
             selectedCategory === 'INSTRUCTOR'
-              ? 'bg-emerald-500 text-white font-bold'
-              : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              ? 'bg-emerald-600 text-white font-bold'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
           Formateurs 🎓
@@ -147,8 +147,8 @@ export default function FanClubPage() {
 
       {/* Grid of Artists */}
       {filteredCreators.length === 0 ? (
-        <div className="text-center py-16 rounded-3xl border border-slate-800 bg-slate-900/40">
-          <p className="text-slate-400 text-sm">Aucun artiste ne correspond à votre recherche.</p>
+        <div className="text-center py-16 rounded-3xl border border-slate-200 bg-white">
+          <p className="text-slate-500 text-sm">Aucun artiste ne correspond à votre recherche.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

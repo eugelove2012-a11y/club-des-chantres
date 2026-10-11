@@ -58,11 +58,11 @@ export default function ActualitePage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-2">
-          <Newspaper className="h-7 w-7 text-amber-400" />
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
+          <Newspaper className="h-7 w-7 text-amber-500" />
           Actualité & Mag Gospel
         </h1>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-slate-600 mt-1">
           Suivez les dernières sorties, les annonces de concerts et les chroniques de nos mentors.
         </p>
       </div>
@@ -72,39 +72,39 @@ export default function ActualitePage() {
         {NEWS_LIST.map((news) => (
           <article
             key={news.id}
-            className="group flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden hover:border-amber-500/40 transition-all duration-300 shadow-lg"
+            className="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-amber-400 hover:shadow-lg transition-all duration-300 shadow-xs"
           >
             {/* Image */}
-            <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
+            <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={news.image}
                 alt={news.title}
                 className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-3 left-3 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-amber-400 border border-amber-500/20">
+              <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-amber-700 border border-amber-500/30 shadow-xs">
                 {news.category}
               </span>
             </div>
 
             {/* Content */}
             <div className="flex flex-1 flex-col p-5">
-              <h2 className="font-bold text-base text-white group-hover:text-amber-400 transition-colors line-clamp-2">
+              <h2 className="font-bold text-base text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2">
                 {news.title}
               </h2>
-              <p className="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+              <p className="text-xs text-slate-600 mt-2 line-clamp-3 leading-relaxed">
                 {news.excerpt}
               </p>
 
               {/* Meta & Share */}
-              <div className="mt-auto pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                 <div className="flex items-center gap-1.5">
                   <User className="h-3.5 w-3.5" />
                   <span>{news.author}</span>
                 </div>
                 <button
                   onClick={() => handleShare(news)}
-                  className="flex items-center gap-1 text-slate-400 hover:text-amber-400 transition"
+                  className="flex items-center gap-1 text-slate-500 hover:text-amber-600 transition"
                 >
                   <Share2 className="h-3.5 w-3.5" />
                   <span>Partager</span>

@@ -67,10 +67,10 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
   };
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/5">
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg">
       
       {/* Media Video/Audio Preview Header */}
-      <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
+      <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
         {creator.avatar_url ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -79,13 +79,13 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-900 to-slate-950 text-slate-700">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-slate-400">
             <Music className="h-16 w-16" />
           </div>
         )}
 
         {/* Ambient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
 
         {/* Category Official Badge */}
         <div className="absolute top-3 left-3">
@@ -99,7 +99,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
         <Link
           href={`/fan-club/${creator.id}`}
           aria-label="Aperçu artiste"
-          className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/90 text-slate-950 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-amber-400"
+          className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/95 text-slate-950 shadow-md backdrop-blur-xs transition-all duration-300 hover:scale-110 hover:bg-amber-400"
         >
           <Play className="h-5 w-5 fill-current ml-0.5" />
         </Link>
@@ -107,22 +107,22 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
+        <h3 className="font-bold text-lg text-slate-900 group-hover:text-amber-600 transition-colors">
           {creator.full_name}
         </h3>
         
         {creator.bio && (
-          <p className="mt-1 text-xs text-slate-400 line-clamp-2 leading-relaxed">
+          <p className="mt-1 text-xs text-slate-600 line-clamp-2 leading-relaxed">
             {creator.bio}
           </p>
         )}
 
         {/* Social Counters */}
-        <div className="mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+        <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
           <button
             onClick={handleLike}
             className={`flex items-center gap-1.5 text-xs font-medium transition ${
-              hasLiked ? 'text-rose-500' : 'text-slate-400 hover:text-rose-400'
+              hasLiked ? 'text-rose-500' : 'text-slate-500 hover:text-rose-500'
             }`}
           >
             <Heart className={`h-4 w-4 ${hasLiked ? 'fill-current' : ''}`} />
@@ -132,7 +132,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
           <button
             onClick={handleFanClub}
             className={`flex items-center gap-1.5 text-xs font-medium transition ${
-              isFan ? 'text-amber-400 font-semibold' : 'text-slate-400 hover:text-amber-400'
+              isFan ? 'text-amber-600 font-semibold' : 'text-slate-500 hover:text-amber-600'
             }`}
           >
             <Users className="h-4 w-4" />
@@ -144,7 +144,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
         <div className="mt-4 pt-2">
           <Link
             href={`/fan-club/${creator.id}`}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-amber-500 hover:text-slate-950"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-100 py-2.5 text-xs font-bold text-slate-800 transition-all duration-200 hover:bg-amber-500 hover:text-slate-950"
           >
             <span>Voir profil</span>
             <ArrowRight className="h-3.5 w-3.5" />

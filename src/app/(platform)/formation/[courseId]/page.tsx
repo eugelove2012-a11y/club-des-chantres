@@ -27,7 +27,7 @@ export default function CourseDetailPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <Link
         href="/formation"
-        className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white mb-6"
+        className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-slate-900 mb-6 transition"
       >
         <ArrowLeft className="h-4 w-4" /> Retour au catalogue des formations
       </Link>
@@ -41,27 +41,27 @@ export default function CourseDetailPage() {
             poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&auto=format&fit=crop&q=80"
           />
 
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-4">
-            <h1 className="text-xl sm:text-2xl font-extrabold text-white">
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-6 sm:p-8 space-y-4">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900">
               Chapitre : {activeChapter.title}
             </h1>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               Dans ce module pratique, travaillez les vocalises guidées pour ancrer le soutien diaphragmatique sans fatiguer vos cordes vocales avant vos temps de ministère.
             </p>
 
             {/* Téléchargements & Ressources */}
-            <div className="pt-4 border-t border-slate-800/80">
-              <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-3">
+            <div className="pt-4 border-t border-slate-100">
+              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
                 Ressources Pédagogiques du Cours
               </h3>
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => alert('Téléchargement de la grille d\'accords PDF...')}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-semibold text-amber-400 hover:bg-slate-900 transition"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-800 hover:bg-amber-100 transition shadow-sm"
                 >
-                  <FileText className="h-4 w-4" />
+                  <FileText className="h-4 w-4 text-amber-600" />
                   <span>Grille d&apos;accords & Partition (PDF)</span>
-                  <Download className="h-3.5 w-3.5 text-slate-400 ml-1" />
+                  <Download className="h-3.5 w-3.5 text-amber-600 ml-1" />
                 </button>
               </div>
             </div>
@@ -70,8 +70,8 @@ export default function CourseDetailPage() {
 
         {/* Chapters Sidebar */}
         <div className="lg:col-span-4">
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
-            <h2 className="font-bold text-sm text-white uppercase tracking-wider border-b border-slate-800 pb-3">
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 space-y-4">
+            <h2 className="font-bold text-sm text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-3">
               Sommaire du Cursus ({CHAPTERS.length} leçons)
             </h2>
 
@@ -84,15 +84,15 @@ export default function CourseDetailPage() {
                     onClick={() => setActiveChapter(ch)}
                     className={`cursor-pointer flex items-center justify-between p-3.5 rounded-2xl border transition ${
                       isActive
-                        ? 'border-amber-500 bg-amber-500/10 text-white'
-                        : 'border-slate-800/60 bg-slate-950/60 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
+                        ? 'border-amber-500 bg-amber-50 text-slate-900 shadow-sm'
+                        : 'border-slate-100 bg-slate-50/70 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       {ch.isCompleted ? (
-                        <CheckCircle className="h-4 w-4 text-emerald-400 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                       ) : (
-                        <PlayCircle className={`h-4 w-4 flex-shrink-0 ${isActive ? 'text-amber-400' : 'text-slate-500'}`} />
+                        <PlayCircle className={`h-4 w-4 flex-shrink-0 ${isActive ? 'text-amber-600' : 'text-slate-400'}`} />
                       )}
                       <div>
                         <div className="text-xs font-semibold line-clamp-1">{idx + 1}. {ch.title}</div>
