@@ -15,19 +15,20 @@ export const PlatformHeaderBanner: React.FC<PlatformHeaderBannerProps> = ({
   badge,
 }) => {
   return (
-    <section className="relative w-full overflow-hidden bg-slate-950 border-b border-amber-500/30 shadow-2xl">
-      {/* Background Image Scénique pleine largeur avec reflets de scène */}
+    <section className="relative w-full overflow-hidden bg-[#091124] border-b border-amber-500/30 shadow-2xl">
+      {/* Background Image Scénique pleine largeur avec reflets de scène clairs et éclatants */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero/slide-2.jpg"
           alt="Concert & Célébration Club des Chantres"
           fill
           priority
-          className="object-cover object-center opacity-45 mix-blend-luminosity scale-105"
+          className="object-cover object-center brightness-110 contrast-105 opacity-85 scale-100"
         />
-        {/* Gradients cinématiques bleu nuit & halo doré */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/90" />
-        <div className="absolute inset-0 bg-radial-gradient from-blue-600/15 via-transparent to-transparent pointer-events-none" />
+        {/* Voiles doux pour conserver la clarté tout en assurant une lisibilité parfaite des textes */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/35 to-slate-950/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/35" />
+        <div className="absolute inset-0 bg-radial-gradient from-blue-500/10 via-transparent to-transparent pointer-events-none" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:py-11 sm:px-6 lg:px-8">
@@ -54,10 +55,10 @@ export const PlatformHeaderBanner: React.FC<PlatformHeaderBannerProps> = ({
                 {badge}
               </span>
             )}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white drop-shadow-md">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               {title}
             </h1>
-            <p className="text-xs sm:text-sm font-medium text-slate-200 tracking-wide drop-shadow-sm pt-1">
+            <p className="text-xs sm:text-sm font-medium text-slate-100 tracking-wide drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)] pt-1">
               {subtitle}
             </p>
           </div>

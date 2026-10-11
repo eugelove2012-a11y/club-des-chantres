@@ -89,7 +89,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/fan-club"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0e214d] text-white text-xs font-bold hover:bg-[#081533] shadow-md hover:shadow-lg transition border border-blue-900/50 active:scale-95"
               >
                 <span>Voir plus</span>
                 <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
@@ -133,7 +133,7 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/formation"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0e214d] text-white text-xs font-bold hover:bg-[#081533] shadow-sm transition border border-blue-900/40 active:scale-95"
                   >
                     <span>Voir le cursus</span>
                     <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
@@ -158,7 +158,7 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/formation"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0e214d] text-white text-xs font-bold hover:bg-[#081533] shadow-sm transition border border-blue-900/40 active:scale-95"
                   >
                     <span>Voir le cursus</span>
                     <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
@@ -183,7 +183,7 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/web-tv"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0e214d] text-white text-xs font-bold hover:bg-[#081533] shadow-sm transition border border-blue-900/40 active:scale-95"
                   >
                     <span>Voir le culte & Web TV</span>
                     <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
