@@ -19,6 +19,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { BottomNav } from '@/components/layout/BottomNav';
 
+import { HeroSlider } from '@/components/ui/HeroSlider';
+
 // Données démo pour l'affichage initial
 const FEATURED_CREATORS: CreatorCardData[] = [
   {
@@ -56,45 +58,53 @@ export default function HomePage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. HERO SECTION */}
-        <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-32">
+        {/* 1. HERO SECTION AVEC SLIDER CINÉMATIQUE */}
+        <section className="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24">
           {/* Background Gradient & Ambient Aura */}
           <div className="absolute inset-0 bg-radial-gradient from-amber-500/10 via-slate-950/80 to-slate-950 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-amber-500/10 blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[600px] rounded-full bg-amber-500/10 blur-[140px] pointer-events-none" />
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             
-            {/* Live Banner Notification */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-semibold text-rose-400 backdrop-blur-md animate-pulse">
-              <Radio className="h-4 w-4" />
-              <span>EN DIRECT SUR WEB TV : Concert de Louange Live Abidjan</span>
-              <Link href="/web-tv" className="underline ml-1 hover:text-white">
-                Rejoindre
-              </Link>
+            {/* Header Text & Badges */}
+            <div className="text-center max-w-4xl mx-auto mb-10">
+              {/* Live Banner Notification */}
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-semibold text-rose-400 backdrop-blur-md animate-pulse">
+                <Radio className="h-4 w-4" />
+                <span>EN DIRECT SUR WEB TV : Concert de Louange Live Abidjan</span>
+                <Link href="/web-tv" className="underline ml-1 hover:text-white">
+                  Rejoindre
+                </Link>
+              </div>
+
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.1]">
+                La Puissance du <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">Gospel</span> en Streaming & Académie
+              </h1>
+
+              <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed">
+                Découvrez les masterclasses des plus grands chantres et instrumentistes chrétiens d’Afrique.
+                Web TV 24/7, partitions exclusives et adhésion aux fan clubs officiels.
+              </p>
             </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
-              La Puissance du <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">Gospel</span> en Streaming & Académie
-            </h1>
+            {/* Slider Visuel Cinématique Principal */}
+            <div className="mb-10">
+              <HeroSlider />
+            </div>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed">
-              Découvrez les masterclasses des plus grands chantres et instrumentistes chrétiens d’Afrique.
-              Web TV 24/7, partitions exclusives et adhésion aux fan clubs officiels.
-            </p>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Quick Actions & Reassurance */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/checkout?plan=MEMBER_1000"
-                className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-amber-500/20 hover:brightness-110 transition"
+                className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-amber-500/20 hover:brightness-110 active:scale-95 transition"
               >
                 <Play className="h-4 w-4 fill-current" />
-                Découvrir les contenus (1 000 FCFA/mois)
+                Accès Membre Illimité (1 000 FCFA/mois)
               </Link>
 
               <Link
                 href="/checkout?plan=CREATOR_3000"
-                className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-slate-700 bg-slate-900/80 px-8 py-4 text-sm font-bold text-white hover:bg-slate-800 transition"
+                className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-slate-700 bg-slate-900/80 px-8 py-4 text-sm font-bold text-white hover:bg-slate-800 hover:border-slate-600 active:scale-95 transition"
               >
                 <Crown className="h-4 w-4 text-amber-400" />
                 Espace Chantres & Musiciens (3 000 FCFA/mois)
@@ -103,7 +113,7 @@ export default function HomePage() {
 
             <div className="mt-6 flex items-center justify-center gap-4 text-xs text-slate-500">
               <span className="flex items-center gap-1">
-                <ShieldCheck className="h-4 w-4 text-emerald-400" /> Paiement Mobile Money instantané (Wave, OM, Moov, MTN)
+                <ShieldCheck className="h-4 w-4 text-emerald-400" /> Paiement Mobile Money instantané (Wave, OM, Moov, MTN & Cartes)
               </span>
             </div>
           </div>
