@@ -87,6 +87,16 @@ export default function EmissionPage() {
                 <Clock className="h-3.5 w-3.5" />
                 <span>Durée : {show.duration}</span>
               </div>
+
+              <div className="mt-4 pt-2">
+                <button
+                  onClick={() => alert(`Lecture de l'émission : ${show.title}`)}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition shadow-xs"
+                >
+                  <Play className="h-3.5 w-3.5 fill-current text-amber-400" />
+                  <span>Voir plus</span>
+                </button>
+              </div>
             </div>
           </div>
         ))}

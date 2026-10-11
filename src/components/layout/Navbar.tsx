@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-xs">
+      <header className="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/95 backdrop-blur-md shadow-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           
           {/* Brand Logo */}
@@ -64,10 +64,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Sparkles className="h-6 w-6 fill-current" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg tracking-tight text-slate-900 leading-none">
-                CLUB DES <span className="text-amber-500">CHANTRES</span>
+              <span className="font-extrabold text-lg tracking-tight text-white leading-none">
+                CLUB DES <span className="text-amber-400">CHANTRES</span>
               </span>
-              <span className="text-[10px] font-semibold tracking-widest text-slate-500 uppercase">
+              <span className="text-[10px] font-semibold tracking-widest text-slate-400 uppercase">
                 Gospel Stream & Academy
               </span>
             </div>
@@ -84,8 +84,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href={link.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-amber-500/10 text-amber-700 border border-amber-500/30'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      ? 'bg-amber-500/10 text-amber-400 border border-amber-500/30'
+                      : 'text-slate-300 hover:bg-slate-900 hover:text-white'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Right Action / Auth & Subscription Badge */}
           <div className="hidden sm:flex items-center gap-3">
             {hasActiveSubscription ? (
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/30">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                 <Crown className="h-3.5 w-3.5" />
                 <span>{userRole === 'CREATOR' ? 'Créateur Pro' : 'Pass VIP'}</span>
               </div>
@@ -113,12 +113,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
 
             {displayName ? (
-              <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
+              <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
                 <Link
                   href={userRole === 'CREATOR' ? '/dashboard/creator' : '/fan-club'}
-                  className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-slate-100 border border-amber-500/30 text-amber-800 hover:bg-slate-200 transition text-xs font-semibold"
+                  className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-slate-900 border border-amber-500/30 text-amber-400 hover:bg-slate-850 transition text-xs font-semibold"
                 >
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-700">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400">
                     <UserIcon className="h-3.5 w-3.5" />
                   </div>
                   <span className="max-w-[120px] truncate">{displayName}</span>
@@ -129,7 +129,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setActivePseudo(null);
                   }}
                   title="Déconnexion"
-                  className="text-[11px] text-slate-400 hover:text-rose-600 transition"
+                  className="text-[11px] text-slate-400 hover:text-rose-400 transition"
                 >
                   ✕
                 </button>
@@ -137,9 +137,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <Link
                 href="/login"
-                className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 px-3.5 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 shadow-xs transition"
+                className="flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-1.5 rounded-xl border border-slate-700 bg-slate-900 hover:bg-slate-800 shadow-xs transition"
               >
-                <UserIcon className="h-3.5 w-3.5 text-amber-500" />
+                <UserIcon className="h-3.5 w-3.5 text-amber-400" />
                 <span>Se connecter</span>
               </Link>
             )}
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => setMobileDrawerOpen(!mobileDrawerOpen)}
               aria-label="Menu principal"
-              className="p-2 rounded-lg bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200"
+              className="p-2 rounded-lg bg-slate-900 text-slate-200 hover:text-white border border-slate-800"
             >
               {mobileDrawerOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -162,15 +162,15 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileDrawerOpen && (
         <div className="fixed inset-0 z-50 flex lg:hidden">
           <div
-            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs transition-opacity"
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileDrawerOpen(false)}
           />
-          <div className="relative ml-auto flex h-full w-4/5 max-w-xs flex-col bg-white border-l border-slate-200 p-6 shadow-2xl">
+          <div className="relative ml-auto flex h-full w-4/5 max-w-xs flex-col bg-slate-950 border-l border-slate-800 p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-8">
-              <span className="font-bold text-slate-900 text-base">Menu Navigation</span>
+              <span className="font-bold text-white text-base">Menu Navigation</span>
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="p-1 rounded-md text-slate-500 hover:text-slate-900"
+                className="p-1 rounded-md text-slate-400 hover:text-white"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -187,8 +187,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => setMobileDrawerOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition ${
                       isActive
-                        ? 'bg-amber-500/10 text-amber-700 border border-amber-500/30'
-                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                        ? 'bg-amber-500/10 text-amber-400 border border-amber-500/30'
+                        : 'text-slate-300 hover:bg-slate-900 hover:text-white'
                     }`}
                   >
                     <Icon className="h-5 w-5" />
@@ -198,7 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            <div className="mt-auto pt-6 border-t border-slate-200">
+            <div className="mt-auto pt-6 border-t border-slate-800">
               <Link
                 href="/checkout"
                 onClick={() => setMobileDrawerOpen(false)}

@@ -162,14 +162,14 @@ export function HeroSlider() {
 
   return (
     <div 
-      className="relative w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl shadow-slate-900/15 group select-none"
+      className="relative w-full overflow-hidden bg-slate-950 group select-none shadow-lg"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Container d'images avec effet crossfade fluide */}
-      <div className="relative h-[560px] sm:h-[620px] lg:h-[680px] w-full overflow-hidden">
+      {/* Container d'images avec effet crossfade fluide - Pleine Largeur Écran */}
+      <div className="relative h-[580px] sm:h-[640px] lg:h-[720px] w-full overflow-hidden">
         {SLIDES.map((slide, index) => {
           const isActive = index === currentIndex;
           return (
@@ -187,7 +187,7 @@ export function HeroSlider() {
                   fill
                   priority={index === 0}
                   className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                  sizes="100vw"
                 />
               </div>
 
@@ -196,46 +196,48 @@ export function HeroSlider() {
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/60 to-transparent sm:w-3/4" />
               <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/40 to-slate-950/90 pointer-events-none" />
 
-              {/* Contenu textuel ajusté et animé */}
+              {/* Contenu textuel ajusté et animé - Aligné proprement au centre de l'écran */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-12 lg:p-16 z-20">
-                <div className="max-w-2xl transform transition-all duration-700 delay-100">
-                  
-                  {/* Badge thématique */}
-                  <div className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1 text-xs font-bold tracking-wide backdrop-blur-md mb-4 shadow-lg ${slide.badgeClass}`}>
-                    {slide.tagIcon}
-                    <span>{slide.tag}</span>
-                  </div>
+                <div className="mx-auto max-w-7xl w-full">
+                  <div className="max-w-2xl transform transition-all duration-700 delay-100">
+                    
+                    {/* Badge thématique */}
+                    <div className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1 text-xs font-bold tracking-wide backdrop-blur-md mb-4 shadow-lg ${slide.badgeClass}`}>
+                      {slide.tagIcon}
+                      <span>{slide.tag}</span>
+                    </div>
 
-                  {/* Titre avec dégradé d'or */}
-                  <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] mb-3">
-                    {slide.title}{' '}
-                    <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
-                      {slide.highlight}
-                    </span>
-                  </h2>
+                    {/* Titre avec dégradé d'or */}
+                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] mb-3">
+                      {slide.title}{' '}
+                      <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
+                        {slide.highlight}
+                      </span>
+                    </h2>
 
-                  {/* Description descriptive */}
-                  <p className="text-sm sm:text-base text-slate-200 line-clamp-3 sm:line-clamp-none max-w-xl leading-relaxed mb-6 text-shadow-sm">
-                    {slide.description}
-                  </p>
+                    {/* Description descriptive */}
+                    <p className="text-sm sm:text-base text-slate-200 line-clamp-3 sm:line-clamp-none max-w-xl leading-relaxed mb-6 text-shadow-sm">
+                      {slide.description}
+                    </p>
 
-                  {/* Boutons d'actions CTA */}
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
-                    <Link
-                      href={slide.primaryCta.href}
-                      className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-xs sm:text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 hover:brightness-110 active:scale-95 transition"
-                    >
-                      <Play className="h-4 w-4 fill-current" />
-                      {slide.primaryCta.label}
-                    </Link>
+                    {/* Boutons d'actions CTA */}
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
+                      <Link
+                        href={slide.primaryCta.href}
+                        className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-xs sm:text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 hover:brightness-110 active:scale-95 transition"
+                      >
+                        <Play className="h-4 w-4 fill-current" />
+                        {slide.primaryCta.label}
+                      </Link>
 
-                    <Link
-                      href={slide.secondaryCta.href}
-                      className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/80 px-5 py-3 text-xs sm:text-sm font-semibold text-white backdrop-blur-md hover:bg-slate-800 hover:border-slate-600 active:scale-95 transition"
-                    >
-                      {slide.secondaryCta.label}
-                      <ArrowRight className="h-4 w-4 text-amber-400" />
-                    </Link>
+                      <Link
+                        href={slide.secondaryCta.href}
+                        className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/80 px-5 py-3 text-xs sm:text-sm font-semibold text-white backdrop-blur-md hover:bg-slate-800 hover:border-slate-600 active:scale-95 transition"
+                      >
+                        {slide.secondaryCta.label}
+                        <ArrowRight className="h-4 w-4 text-amber-400" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

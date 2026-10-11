@@ -140,14 +140,14 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
           </button>
         </div>
 
-        {/* Action: Voir Profil */}
+        {/* Action: Voir plus */}
         <div className="mt-4 pt-2">
           <Link
             href={`/fan-club/${creator.id}`}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-100 py-2.5 text-xs font-bold text-slate-800 transition-all duration-200 hover:bg-amber-500 hover:text-slate-950"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
           >
-            <span>Voir profil</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <span>Voir plus</span>
+            <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
           </Link>
         </div>
       </div>

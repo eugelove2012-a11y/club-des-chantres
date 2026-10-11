@@ -145,10 +145,10 @@ export default function FormationPage() {
               <div className="mt-4 pt-2">
                 <Link
                   href={`/formation/${course.id}`}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-100 py-2.5 text-xs font-bold text-slate-800 hover:bg-amber-500 hover:text-slate-950 transition"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white hover:bg-slate-800 hover:shadow-md transition"
                 >
                   <span>Suivre le cours</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
                 </Link>
               </div>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Newspaper, Share2, Calendar, User, MessageSquare } from 'lucide-react';
+import { Newspaper, Share2, Calendar, User, MessageSquare, ArrowRight } from 'lucide-react';
 
 interface NewsItem {
   id: string;
@@ -108,6 +108,17 @@ export default function ActualitePage() {
                 >
                   <Share2 className="h-3.5 w-3.5" />
                   <span>Partager</span>
+                </button>
+              </div>
+
+              {/* Action: Voir plus */}
+              <div className="mt-3">
+                <button
+                  onClick={() => alert(`Lecture complète de l'article : ${news.title}`)}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2 text-xs font-bold text-white hover:bg-slate-800 transition"
+                >
+                  <span>Voir plus</span>
+                  <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
                 </button>
               </div>
             </div>

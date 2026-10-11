@@ -158,6 +158,13 @@ export default function WebTVPage() {
               <span className="flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> 05 Oct 2026</span>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> Replay HD</span>
             </div>
+            <button
+              onClick={() => alert('Lancement du Replay Festival Gospel...')}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
+            >
+              <Play className="h-3.5 w-3.5 fill-current text-amber-400" />
+              <span>Voir plus</span>
+            </button>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-4 space-y-3 group shadow-xs hover:border-amber-400 hover:shadow-md transition">
@@ -177,6 +184,13 @@ export default function WebTVPage() {
               <span className="flex items-center gap-1"><Calendar className="h-3.5 w-3.5" /> 28 Sept 2026</span>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> Replay HD</span>
             </div>
+            <button
+              onClick={() => alert('Lancement de la rediffusion du Culte...')}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
+            >
+              <Play className="h-3.5 w-3.5 fill-current text-amber-400" />
+              <span>Voir le culte</span>
+            </button>
           </div>
         </div>
       </div>

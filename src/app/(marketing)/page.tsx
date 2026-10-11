@@ -58,18 +58,14 @@ export default function HomePage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. HERO HEADER IMMERSIF — LE SLIDER OCCUPE TOUT L'ESPACE HEADER SOUS LE MENU */}
-        <section className="relative overflow-hidden pt-3 pb-12 sm:pt-5 sm:pb-16 bg-white">
-          {/* Subtle Ambient Aura */}
-          <div className="absolute inset-0 bg-radial-gradient from-amber-500/5 via-slate-50/50 to-white pointer-events-none" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-amber-500/5 blur-[150px] pointer-events-none" />
+        {/* 1. HERO HEADER IMMERSIF — LE SLIDER OCCUPE TOUT L'ÉCRAN DE GAUCHE À DROITE */}
+        <section className="relative w-full overflow-hidden bg-white">
+          {/* Slider Visuel Cinématique Principal qui prend tout l'écran bord à bord */}
+          <HeroSlider />
 
-          <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-            {/* Slider Visuel Cinématique Principal qui prend tout le haut sous le menu */}
-            <HeroSlider />
-
-            {/* Réassurance & Paiement Mobile Money sous le Header */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-500">
+          {/* Réassurance & Paiement Mobile Money sous le Header */}
+          <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8 border-b border-slate-200">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-500">
               <span className="flex items-center gap-1.5 font-medium text-slate-700">
                 <ShieldCheck className="h-4 w-4 text-emerald-600" /> Paiement sécurisé Mobile Money instantané (Wave, Orange Money, Moov, MTN & Cartes)
               </span>
@@ -82,7 +78,7 @@ export default function HomePage() {
         </section>
 
         {/* 2. CARROUSEL DES CRÉATEURS À L'AFFICHE */}
-        <section className="py-14 border-t border-slate-200 bg-slate-50">
+        <section className="py-14 bg-slate-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
@@ -93,9 +89,10 @@ export default function HomePage() {
               </div>
               <Link
                 href="/fan-club"
-                className="flex items-center gap-1 text-sm font-semibold text-amber-600 hover:text-amber-700 transition"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
               >
-                Explorer tout le Fan Club <ArrowRight className="h-4 w-4" />
+                <span>Voir plus</span>
+                <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
               </Link>
             </div>
 
@@ -125,8 +122,8 @@ export default function HomePage() {
                   <div className="p-3 rounded-xl bg-rose-500/10 text-rose-600 border border-rose-500/20">
                     <Mic className="h-6 w-6" />
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-amber-800 font-semibold bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/30">
-                    <Lock className="h-3 w-3" /> Abonnement requis
+                  <span className="flex items-center gap-1.5 text-xs text-amber-300 font-bold bg-slate-900 px-3 py-1 rounded-full border border-slate-700 shadow-sm">
+                    <Lock className="h-3 w-3 text-amber-400" /> Abonnement requis
                   </span>
                 </div>
                 <h3 className="font-bold text-lg text-slate-900">Technique Vocale & Respiration Diaphragmatique</h3>
@@ -136,9 +133,10 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/formation"
-                    className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
                   >
-                    Voir le cursus <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Voir le cursus</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
                   </Link>
                 </div>
               </div>
@@ -149,8 +147,8 @@ export default function HomePage() {
                   <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-600 border border-indigo-500/20">
                     <Music className="h-6 w-6" />
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-amber-800 font-semibold bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/30">
-                    <Lock className="h-3 w-3" /> Abonnement requis
+                  <span className="flex items-center gap-1.5 text-xs text-amber-300 font-bold bg-slate-900 px-3 py-1 rounded-full border border-slate-700 shadow-sm">
+                    <Lock className="h-3 w-3 text-amber-400" /> Abonnement requis
                   </span>
                 </div>
                 <h3 className="font-bold text-lg text-slate-900">Accords Gospel & Accompagnement d&apos;Adoration</h3>
@@ -160,9 +158,10 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/formation"
-                    className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
                   >
-                    Voir le cursus <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Voir le cursus</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
                   </Link>
                 </div>
               </div>
@@ -173,8 +172,8 @@ export default function HomePage() {
                   <div className="p-3 rounded-xl bg-amber-500/10 text-amber-600 border border-amber-500/20">
                     <Tv className="h-6 w-6" />
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-amber-800 font-semibold bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/30">
-                    <Lock className="h-3 w-3" /> Abonnement requis
+                  <span className="flex items-center gap-1.5 text-xs text-amber-300 font-bold bg-slate-900 px-3 py-1 rounded-full border border-slate-700 shadow-sm">
+                    <Lock className="h-3 w-3 text-amber-400" /> Abonnement requis
                   </span>
                 </div>
                 <h3 className="font-bold text-lg text-slate-900">Grandes Soirées de Célébration & Replays</h3>
@@ -184,9 +183,10 @@ export default function HomePage() {
                 <div className="mt-6">
                   <Link
                     href="/web-tv"
-                    className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-sm transition"
                   >
-                    Accéder à la Web TV <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Voir le culte & Web TV</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
                   </Link>
                 </div>
               </div>

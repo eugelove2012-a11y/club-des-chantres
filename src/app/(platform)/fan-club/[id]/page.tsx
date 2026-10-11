@@ -152,6 +152,13 @@ export default function CreatorProfilePage() {
               <h3 className="font-bold text-slate-900 text-base">Session Acoustique : &quot;Plus Près de Toi&quot;</h3>
               <p className="text-xs text-slate-500 mt-1">Enregistrement live intimiste au piano-voix.</p>
             </div>
+            <button
+              onClick={() => alert('Lecture de la session acoustique...')}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
+            >
+              <Play className="h-3.5 w-3.5 fill-current text-amber-400" />
+              <span>Voir plus</span>
+            </button>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-5 space-y-4 shadow-xs">
@@ -170,6 +177,13 @@ export default function CreatorProfilePage() {
               <h3 className="font-bold text-slate-900 text-base">Extrait Concert d&apos;Adoration Abidjan</h3>
               <p className="text-xs text-slate-500 mt-1">Moment d&apos;élévation spirituelle avec 3 000 fidèles.</p>
             </div>
+            <button
+              onClick={() => alert('Lecture de l\'extrait concert live...')}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:bg-slate-800 hover:shadow-md"
+            >
+              <Play className="h-3.5 w-3.5 fill-current text-amber-400" />
+              <span>Voir plus</span>
+            </button>
           </div>
         </div>
       </div>
