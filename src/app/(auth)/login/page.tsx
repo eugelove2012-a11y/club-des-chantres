@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Sparkles, Mail, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Sparkles, User, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
 export default function LoginPage() {
@@ -11,7 +11,7 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const returnUrl = searchParams.get('returnUrl') || '/fan-club';
 
-  const [email, setEmail] = useState('');
+  const [pseudo, setPseudo] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -21,15 +21,24 @@ export default function LoginPage() {
     setLoading(true);
     setErrorMsg(null);
 
+    // Enregistrer le pseudo dans le stockage local
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user_pseudo', pseudo);
+    }
+
+    const emailEquivalent = pseudo.includes('@') 
+      ? pseudo 
+      : `${pseudo.toLowerCase().trim().replace(/\s+/g, '')}@clubdeschantres.local`;
+
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: emailEquivalent,
       password,
     });
 
     if (error) {
       // Pour la démonstration / développement, redirection gracieuse
-      if (email.includes('@')) {
+      if (pseudo.trim().length > 0) {
         router.push(returnUrl);
         return;
       }
@@ -68,16 +77,16 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-              Email
+              Pseudo
             </label>
             <div className="relative">
-              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
               <input
-                type="email"
+                type="text"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="nom@exemple.com"
+                value={pseudo}
+                onChange={(e) => setPseudo(e.target.value)}
+                placeholder="Votre pseudo (ex: ChantreDavid)"
                 className="w-full rounded-xl bg-slate-950 border border-slate-800 pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500"
               />
             </div>

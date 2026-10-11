@@ -42,6 +42,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const pathname = usePathname();
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [activePseudo, setActivePseudo] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('user_pseudo');
+      if (saved) setActivePseudo(saved);
+    }
+  }, []);
+
+  const displayName = userFullName || activePseudo;
 
   return (
     <>
@@ -102,30 +112,35 @@ export const Navbar: React.FC<NavbarProps> = ({
               </Link>
             )}
 
-            {userFullName ? (
-              <Link
-                href={userRole === 'CREATOR' ? '/dashboard/creator' : '/profile'}
-                className="flex items-center gap-2 pl-2 border-l border-slate-800 hover:opacity-80 transition"
-              >
-                {userAvatar ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={userAvatar}
-                    alt={userFullName}
-                    className="h-8 w-8 rounded-full object-cover border border-amber-500/40"
-                  />
-                ) : (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 text-slate-200">
-                    <UserIcon className="h-4 w-4" />
+            {displayName ? (
+              <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
+                <Link
+                  href={userRole === 'CREATOR' ? '/dashboard/creator' : '/fan-club'}
+                  className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-slate-900 border border-amber-500/30 text-amber-300 hover:bg-slate-800 transition text-xs font-semibold"
+                >
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400">
+                    <UserIcon className="h-3.5 w-3.5" />
                   </div>
-                )}
-              </Link>
+                  <span className="max-w-[120px] truncate">{displayName}</span>
+                </Link>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('user_pseudo');
+                    setActivePseudo(null);
+                  }}
+                  title="Déconnexion"
+                  className="text-[11px] text-slate-500 hover:text-rose-400 transition"
+                >
+                  ✕
+                </button>
+              </div>
             ) : (
               <Link
                 href="/login"
-                className="text-xs font-medium text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-900/50 transition"
+                className="flex items-center gap-1.5 text-xs font-semibold text-slate-200 hover:text-white px-3.5 py-1.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 transition"
               >
-                Connexion
+                <UserIcon className="h-3.5 w-3.5 text-amber-400" />
+                <span>Se connecter</span>
               </Link>
             )}
           </div>

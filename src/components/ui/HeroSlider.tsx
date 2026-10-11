@@ -169,7 +169,7 @@ export function HeroSlider() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Container d'images avec effet crossfade fluide */}
-      <div className="relative h-[540px] sm:h-[580px] lg:h-[640px] w-full overflow-hidden">
+      <div className="relative h-[560px] sm:h-[620px] lg:h-[680px] w-full overflow-hidden">
         {SLIDES.map((slide, index) => {
           const isActive = index === currentIndex;
           return (
